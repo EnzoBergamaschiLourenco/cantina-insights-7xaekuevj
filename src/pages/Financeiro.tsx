@@ -25,11 +25,12 @@ import { formatCurrency, formatPercent } from '@/lib/formatters'
 
 export default function Financeiro() {
   const context = useContext(CanteenDataContext)
+  const [period, setPeriod] = useState('7')
+  const { toast } = useToast()
+
   if (!context) return null
 
   const { items, sales, loading } = context
-  const [period, setPeriod] = useState('7')
-  const { toast } = useToast()
 
   const handleExport = () => {
     toast({

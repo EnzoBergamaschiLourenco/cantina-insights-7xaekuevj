@@ -24,11 +24,11 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 export default function Estoque() {
   const context = useContext(CanteenDataContext)
-  if (!context) return null
-
-  const { items, loading } = context
   const [searchTerm, setSearchTerm] = useState('')
   const [categoryFilter, setCategoryFilter] = useState('Todas')
+
+  const items = context?.items || []
+  const loading = context?.loading || false
 
   const categories = useMemo(() => {
     const cats = new Set(items.map((item) => item.category))
@@ -42,6 +42,8 @@ export default function Estoque() {
       return matchesSearch && matchesCategory
     })
   }, [items, searchTerm, categoryFilter])
+
+  if (!context) return null
 
   const getStatusBadge = (status: string) => {
     switch (status) {

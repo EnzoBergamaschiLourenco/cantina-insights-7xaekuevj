@@ -8,9 +8,10 @@ import { formatCurrency, formatDate } from '@/lib/formatters'
 
 export default function Index() {
   const context = useContext(CanteenDataContext)
-  if (!context) return null
 
-  const { items, sales, loading } = context
+  const items = context?.items || []
+  const sales = context?.sales || []
+  const loading = context?.loading || false
 
   const kpis = useMemo(() => {
     const totalItems = items.reduce((acc, item) => acc + item.quantity, 0)
@@ -31,6 +32,8 @@ export default function Index() {
       return { ...s, itemName: item?.name || 'Desconhecido' }
     })
   }, [sales, items])
+
+  if (!context) return null
 
   return (
     <div className="space-y-6">
