@@ -24,46 +24,19 @@ export default function UpdateInfo() {
     e.preventDefault()
     setIsProcessing(true)
 
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
-
-    try {
-      // 1. Criar novo processamento na API externa
-      const procRes = await fetch(`${API_BASE_URL}/api/processamentos/novo`, { method: 'POST' })
-      if (!procRes.ok) throw new Error('Falha ao iniciar processamento')
-      const { processamento_id } = await procRes.json()
-
-      // 2. Enviar NFE (usando o link de notas fiscais)
-      const nfeForm = new FormData()
-      nfeForm.append('urls', invoicesLink)
-      nfeForm.append('processamento_id', processamento_id)
-
-      await fetch(`${API_BASE_URL}/api/nfe`, { method: 'POST', body: nfeForm }).catch(() =>
-        console.warn('NFE endpoint indisponível no momento'),
-      )
-
-      // 3. Orquestrar processamento completo
-      await fetch(`${API_BASE_URL}/api/orquestrar?processamento_id=${processamento_id}`, {
-        method: 'POST',
-      }).catch(() => console.warn('Orchestrate endpoint indisponível no momento'))
-
+    // Simulando processamento conforme os requisitos (UI apenas)
+    setTimeout(() => {
       toast({
         title: 'Processamento iniciado',
-        description: 'Os links fornecidos estão sendo processados pela API.',
+        description:
+          'Os links fornecidos estão sendo processados. O estoque será atualizado em breve.',
       })
 
       setStockLink('')
       setSalesLink('')
       setInvoicesLink('')
-    } catch (error) {
-      console.error(error)
-      toast({
-        title: 'Aviso de Conexão',
-        description: 'Não foi possível conectar à API externa. Simulando envio local...',
-        variant: 'default',
-      })
-    } finally {
       setIsProcessing(false)
-    }
+    }, 1500)
   }
 
   return (
