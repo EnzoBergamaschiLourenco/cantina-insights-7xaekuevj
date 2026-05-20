@@ -25,6 +25,7 @@ api/
 ## 🚀 Instalação e Execução
 
 ### 1. Instalar dependências
+
 ```bash
 python -m pip install -r requirements.txt
 ```
@@ -32,6 +33,7 @@ python -m pip install -r requirements.txt
 ### 2. Configurar variáveis de ambiente
 
 Criar arquivo `.env`:
+
 ```dotenv
 DEBUG=true
 HOST=0.0.0.0
@@ -54,28 +56,35 @@ Documentação interativa (Swagger UI): `http://localhost:8000/docs`
 ## 📡 Endpoints da API
 
 ### Contagem
+
 - `POST /api/contagem` - Processa dados de contagem (email/CSV)
 
 ### Notas Fiscais
+
 - `POST /api/nfe` - Processa URLs de NFC-es
 
 ### Vendas
+
 - `POST /api/vendas` - Processa relatório de vendas
 
 ### Orquestração
+
 - `POST /api/iniciar-processamento` - Inicia novo processamento
 - `POST /api/orquestrar` - Executa pipeline completo
 
 ### Dicionários
+
 - `GET /api/dicionarios/compras` - Retorna dicionário de compras
 - `POST /api/dicionarios/compras` - Atualiza dicionário de compras
 - `GET /api/dicionarios/vendas` - Retorna dicionário de vendas
 
 ### Download
+
 - `GET /api/resultado/{processamento_id}/csv` - Baixa CSV do resultado
 - `GET /api/resultado/{processamento_id}` - Retorna dados do resultado
 
 ### WebSocket
+
 - `WS /ws/processamento/{processamento_id}` - Chat em tempo real
 
 ## 🔄 Fluxo de Processamento
@@ -120,6 +129,7 @@ GET /api/resultado/{processamento_id}/csv
 ## 🔌 WebSocket - Mapeamento Manual
 
 Se há itens desconhecidos, o servidor envia via WebSocket:
+
 ```json
 {
   "tipo": "necessario_mapeamento",
@@ -135,6 +145,7 @@ Se há itens desconhecidos, o servidor envia via WebSocket:
 ```
 
 Cliente responde com:
+
 ```json
 {
   "tipo": "resposta_mapeamento",
@@ -151,6 +162,7 @@ Cliente responde com:
 ## 🔐 Autenticação GitHub
 
 Requer `GITHUB_TOKEN` configurado como variável de ambiente:
+
 ```bash
 export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 ```
@@ -165,6 +177,7 @@ export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 ## 🛠️ Desenvolvimento
 
 Para dev mode com reload automático:
+
 ```bash
 DEBUG=true python run.py
 ```

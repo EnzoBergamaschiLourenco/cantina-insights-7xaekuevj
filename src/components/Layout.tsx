@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 
 export default function Layout() {
   const location = useLocation()
-  
+
   const navItems = [
     { name: 'Dashboard', path: '/', icon: LayoutDashboard },
     { name: 'Estoque', path: '/stock', icon: Package },
@@ -32,10 +32,10 @@ export default function Layout() {
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "flex items-center gap-3 px-3 py-2.5 rounded-md transition-colors font-medium text-sm",
-                  isActive 
-                    ? "bg-primary text-primary-foreground" 
-                    : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                  'flex items-center gap-3 px-3 py-2.5 rounded-md transition-colors font-medium text-sm',
+                  isActive
+                    ? 'bg-primary text-primary-foreground'
+                    : 'hover:bg-muted text-muted-foreground hover:text-foreground',
                 )}
               >
                 <Icon className="w-4 h-4" />
@@ -45,7 +45,10 @@ export default function Layout() {
           })}
         </nav>
         <div className="p-4 border-t">
-          <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground">
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-muted-foreground hover:text-foreground"
+          >
             <LogOut className="w-4 h-4 mr-2" />
             Sair
           </Button>

@@ -1,5 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { DollarSign, AlertTriangle, Clock } from 'lucide-react'
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
@@ -7,13 +14,13 @@ import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts'
 import { mockProducts, mockSales, mockSalesTrend } from '@/lib/mock-data'
 
 export default function Dashboard() {
-  const lowStock = mockProducts.filter(p => p.quantity < 10)
-  const todaySales = 452.80
+  const lowStock = mockProducts.filter((p) => p.quantity < 10)
+  const todaySales = 452.8
 
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold tracking-tight">Visão Geral</h2>
-      
+
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -25,7 +32,7 @@ export default function Dashboard() {
             <p className="text-xs text-muted-foreground">+15% em relação a ontem</p>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Alertas de Estoque Baixo</CardTitle>
@@ -45,7 +52,10 @@ export default function Dashboard() {
             <CardDescription>Visualização dos últimos 7 dias.</CardDescription>
           </CardHeader>
           <CardContent>
-            <ChartContainer config={{ sales: { label: "Vendas", color: "hsl(var(--primary))" } }} className="h-[300px] w-full">
+            <ChartContainer
+              config={{ sales: { label: 'Vendas', color: 'hsl(var(--primary))' } }}
+              className="h-[300px] w-full"
+            >
               <BarChart data={mockSalesTrend}>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <XAxis dataKey="day" axisLine={false} tickLine={false} />
@@ -55,7 +65,7 @@ export default function Dashboard() {
             </ChartContainer>
           </CardContent>
         </Card>
-        
+
         <Card className="col-span-3">
           <CardHeader>
             <CardTitle>Produtos em Baixa</CardTitle>
@@ -63,7 +73,7 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {lowStock.map(product => (
+              {lowStock.map((product) => (
                 <div key={product.id} className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium leading-none">{product.name}</p>
@@ -73,7 +83,9 @@ export default function Dashboard() {
                 </div>
               ))}
               {lowStock.length === 0 && (
-                <p className="text-sm text-muted-foreground text-center py-4">Estoque normalizado.</p>
+                <p className="text-sm text-muted-foreground text-center py-4">
+                  Estoque normalizado.
+                </p>
               )}
             </div>
           </CardContent>
@@ -104,7 +116,9 @@ export default function Dashboard() {
                     </div>
                   </TableCell>
                   <TableCell>{sale.items}</TableCell>
-                  <TableCell className="text-right font-medium">R$ {sale.total.toFixed(2)}</TableCell>
+                  <TableCell className="text-right font-medium">
+                    R$ {sale.total.toFixed(2)}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
