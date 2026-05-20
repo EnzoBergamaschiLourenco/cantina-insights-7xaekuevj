@@ -1,0 +1,26 @@
+export const mockProducts = [
+  { id: 1, name: 'Coxinha de Frango', category: 'Salgados', quantity: 15, cost: 2.5, price: 5.0, sold: 120 },
+  { id: 2, name: 'Refrigerante Cola Lata', category: 'Bebidas', quantity: 8, cost: 2.0, price: 4.5, sold: 85 },
+  { id: 3, name: 'Bolo de Chocolate (Fatia)', category: 'Doces', quantity: 3, cost: 3.0, price: 7.0, sold: 45 },
+  { id: 4, name: 'Suco Natural de Laranja', category: 'Bebidas', quantity: 20, cost: 1.5, price: 4.0, sold: 60 },
+  { id: 5, name: 'Pão de Queijo', category: 'Salgados', quantity: 5, cost: 1.0, price: 3.0, sold: 150 },
+  { id: 6, name: 'Sanduíche Natural', category: 'Lanches', quantity: 12, cost: 3.5, price: 8.0, sold: 90 },
+  { id: 7, name: 'Água Mineral', category: 'Bebidas', quantity: 30, cost: 0.8, price: 2.5, sold: 200 },
+]
+
+export const mockSales = [
+  { id: 1, date: '25/10/2023 09:30', items: '2x Pão de Queijo, 1x Suco Natural', total: 10.0 },
+  { id: 2, date: '25/10/2023 10:15', items: '1x Coxinha de Frango, 1x Refrigerante', total: 9.5 },
+  { id: 3, date: '25/10/2023 12:00', items: '2x Bolo de Chocolate', total: 14.0 },
+  { id: 4, date: '25/10/2023 12:45', items: '1x Sanduíche Natural, 1x Água Mineral', total: 10.5 },
+]
+
+export const mockSalesTrend = [
+  { day: 'Seg', sales: 120 },
+  { day: 'Ter', sales: 150 },
+  { day: 'Qua', sales: 180 },
+  { day: 'Qui', sales: 140 },
+  { day: 'Sex', sales: 210 },
+  { day: 'Sáb', sales: 80 },
+  { day: 'Dom', sales: 0 },
+]
