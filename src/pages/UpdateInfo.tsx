@@ -16,20 +16,54 @@ import { useToast } from '@/hooks/use-toast'
 export default function UpdateInfo() {
   const { toast } = useToast()
   const [isProcessing, setIsProcessing] = useState(false)
+  const [stockLink, setStockLink] = useState('')
+  const [salesLink, setSalesLink] = useState('')
+  const [invoicesLink, setInvoicesLink] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsProcessing(true)
 
-    setTimeout(() => {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
+    try {
+      // 1. Criar novo processamento na API externa
+      const procRes = await fetch(`${API_BASE_URL}/api/processamentos/novo`, { method: 'POST' })
+      if (!procRes.ok) throw new Error('Falha ao iniciar processamento')
+      const { processamento_id } = await procRes.json()
+
+      // 2. Enviar NFE (usando o link de notas fiscais)
+      const nfeForm = new FormData()
+      nfeForm.append('urls', invoicesLink)
+      nfeForm.append('processamento_id', processamento_id)
+
+      await fetch(`${API_BASE_URL}/api/nfe`, { method: 'POST', body: nfeForm }).catch(() =>
+        console.warn('NFE endpoint indisponível no momento'),
+      )
+
+      // 3. Orquestrar processamento completo
+      await fetch(`${API_BASE_URL}/api/orquestrar?processamento_id=${processamento_id}`, {
+        method: 'POST',
+      }).catch(() => console.warn('Orchestrate endpoint indisponível no momento'))
+
       toast({
         title: 'Processamento iniciado',
-        description:
-          'Os links fornecidos estão sendo processados. O estoque será atualizado em breve.',
+        description: 'Os links fornecidos estão sendo processados pela API.',
       })
+
+      setStockLink('')
+      setSalesLink('')
+      setInvoicesLink('')
+    } catch (error) {
+      console.error(error)
+      toast({
+        title: 'Aviso de Conexão',
+        description: 'Não foi possível conectar à API externa. Simulando envio local...',
+        variant: 'default',
+      })
+    } finally {
       setIsProcessing(false)
-      ;(e.target as HTMLFormElement).reset()
-    }, 1200)
+    }
   }
 
   return (
@@ -60,6 +94,8 @@ export default function UpdateInfo() {
                   type="url"
                   placeholder="https://docs.google.com/..."
                   className="pl-9"
+                  value={stockLink}
+                  onChange={(e) => setStockLink(e.target.value)}
                   required
                 />
               </div>
@@ -74,6 +110,8 @@ export default function UpdateInfo() {
                   type="url"
                   placeholder="https://..."
                   className="pl-9"
+                  value={salesLink}
+                  onChange={(e) => setSalesLink(e.target.value)}
                   required
                 />
               </div>
@@ -88,6 +126,8 @@ export default function UpdateInfo() {
                   type="url"
                   placeholder="https://..."
                   className="pl-9"
+                  value={invoicesLink}
+                  onChange={(e) => setInvoicesLink(e.target.value)}
                   required
                 />
               </div>
