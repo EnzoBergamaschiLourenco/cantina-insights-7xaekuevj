@@ -3,7 +3,7 @@ import { LayoutDashboard, Package, DollarSign, ShoppingCart, RefreshCw, LogOut }
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 
-export default function Layout() {
+export function Layout() {
   const location = useLocation()
 
   const navItems = [

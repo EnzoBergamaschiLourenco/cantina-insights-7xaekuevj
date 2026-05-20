@@ -48,8 +48,8 @@ export default function Dashboard() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
         <Card className="col-span-4">
           <CardHeader>
-            <CardTitle>Tendência de Vendas</CardTitle>
-            <CardDescription>Visualização dos últimos 7 dias.</CardDescription>
+            <CardTitle>Tendência de vendas dos últimos 7 dias</CardTitle>
+            <CardDescription>Visualização do volume de vendas.</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer
@@ -94,7 +94,7 @@ export default function Dashboard() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Vendas Recentes</CardTitle>
+          <CardTitle>Últimas vendas</CardTitle>
           <CardDescription>Histórico de transações mais recentes.</CardDescription>
         </CardHeader>
         <CardContent>

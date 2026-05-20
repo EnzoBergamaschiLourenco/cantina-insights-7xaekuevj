@@ -51,7 +51,7 @@ export default function Stock() {
             <div className="relative flex-1">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Buscar por nome do produto..."
+                placeholder="Nome"
                 className="pl-9"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -71,12 +71,12 @@ export default function Stock() {
             </Select>
             <Select value={stockLevel} onValueChange={setStockLevel}>
               <SelectTrigger className="w-full sm:w-[200px]">
-                <SelectValue placeholder="Nível de Estoque" />
+                <SelectValue placeholder="Quantidade" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Todos os Níveis</SelectItem>
+                <SelectItem value="all">Todas as Quantidades</SelectItem>
                 <SelectItem value="low">Baixo Estoque (&lt; 10)</SelectItem>
-                <SelectItem value="good">Estoque Adequado</SelectItem>
+                <SelectItem value="good">Estoque Adequado (≥ 10)</SelectItem>
               </SelectContent>
             </Select>
           </div>

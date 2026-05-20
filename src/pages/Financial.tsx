@@ -58,7 +58,7 @@ export default function Financial() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Desempenho por Produto</CardTitle>
+          <CardTitle>Produtos mais vendidos</CardTitle>
           <CardDescription>
             Análise detalhada de custos, margens e lucratividade total.
           </CardDescription>
@@ -69,10 +69,10 @@ export default function Financial() {
               <TableHeader>
                 <TableRow>
                   <TableHead>Produto</TableHead>
-                  <TableHead className="text-right">Custo (R$)</TableHead>
-                  <TableHead className="text-right">Venda (R$)</TableHead>
-                  <TableHead className="text-right">Margem</TableHead>
-                  <TableHead className="text-right">Vendidos</TableHead>
+                  <TableHead className="text-right">Custo de Compra</TableHead>
+                  <TableHead className="text-right">Valor de Venda</TableHead>
+                  <TableHead className="text-right">Margem de Lucro</TableHead>
+                  <TableHead className="text-right">Unidades Vendidas</TableHead>
                   <TableHead className="text-right">Lucro Total</TableHead>
                 </TableRow>
               </TableHeader>

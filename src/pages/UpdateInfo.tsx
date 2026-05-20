@@ -86,7 +86,7 @@ export default function UpdateInfo() {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="stockLink">Link do Relatório de Contagem de Estoque</Label>
+              <Label htmlFor="stockLink">Relatório de contagem de estoque</Label>
               <div className="relative">
                 <LinkIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
@@ -102,7 +102,7 @@ export default function UpdateInfo() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="salesLink">Link do Relatório de Vendas</Label>
+              <Label htmlFor="salesLink">Relatórios de venda</Label>
               <div className="relative">
                 <LinkIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
@@ -118,7 +118,7 @@ export default function UpdateInfo() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="invoicesLink">Link das Notas de Compra</Label>
+              <Label htmlFor="invoicesLink">Notas fiscais de compras</Label>
               <div className="relative">
                 <LinkIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
