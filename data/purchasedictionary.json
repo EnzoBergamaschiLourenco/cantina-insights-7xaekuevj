@@ -1,0 +1,27 @@
+{
+    "SUCO LARANJA PRATS - INSUMO": {
+        "unidade": "L",
+        "sinonimos": [
+            {
+                "nome": "*K* SUCO REFRIG LIFE LARANJA 3,5L (Código: 947890 )",
+                "quantidade": 3.5,
+                "unidade": "UN"
+            },
+            {
+                "nome": "SUCO DE LARANJA SEM MARCA",
+                "quantidade": 1,
+                "unidade": "L"
+            }
+        ]
+    },
+    "CASCAO CUPUAÇU": {
+        "unidade": "UN",
+        "sinonimos": [
+            {
+                "nome": "*K* BD RET RIOPLASTIC C4DIV 12un 1200ML (Código: 941248 )",
+                "quantidade": 3.0,
+                "unidade": "UN"
+            }
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+streamlit
+pandas
+PyGithub
+fastapi
+uvicorn[standard]
+python-multipart
+websockets
+python-dotenv
